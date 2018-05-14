@@ -28,6 +28,10 @@ scene = composer.newScene( sceneName ) -- This function doesn't accept a string,
 -----------------------------------------------------------------------------------------
 local bkg_image
 local backButton
+local sofiaButton
+local toddButton
+local tobyButton
+local pennyButton
 
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
@@ -35,9 +39,24 @@ local backButton
 
 -- Creating Transitioning Function back to main menu
 local function BackTransition( )
-    composer.gotoScene( "main_menu", {effect = "slideDown", time = 500})
+    composer.gotoScene( "main_menu", {effect = "zoomOutInFade", time = 500})
 end
 
+local function ToddTransition( )
+    composer.gotoScene( "level1_screen", {effect = "zoomOutInFade", time = 500})
+end
+
+local function SofiaTransition( )
+    composer.gotoScene( "level1_screen2", {effect = "zoomOutInFade", time = 500})
+end
+
+local function TobyTransition( )
+    composer.gotoScene( "level1_screen3", {effect = "zoomOutInFade", time = 500})
+end    
+
+local function PennyTransition( )
+    composer.gotoScene( "level1_screen4", {effect = "zoomOutInFade", time = 500})
+end    
 
 -----------------------------------------------------------------------------------------
 -- GLOBAL SCENE FUNCTIONS
@@ -50,22 +69,10 @@ function scene:create( event )
     local sceneGroup = self.view
 
     -----------------------------------------------------------------------------------------
-    -- BACKGROUND AND DISPLAY OBJECTS
+    -- BACKGROUND
     -----------------------------------------------------------------------------------------
 
-    -- Insert the background image and set it to the center of the screen
     display.setDefault ("background", 229/255, 104/255, 45/255)
-    --------bkg_image = display.newImageRect("Images/Instructions.png", display.contentWidth, display.contentHeight)
-    --------bkg_image.x = display.contentCenterX
-    --------bkg_image.y = display.contentCenterY
-    --------bkg_image.width = display.contentWidth
-    --------bkg_image.height = display.contentHeight
-
-    -- Associating display objects with this scene 
-    --------sceneGroup:insert( bkg_image )
-
-    -- Send the background image to the back layer so all other objects can be on top
-    --------bkg_image:toBack()
 
     -----------------------------------------------------------------------------------------
     -- BUTTON WIDGETS
@@ -93,8 +100,110 @@ function scene:create( event )
 
     -----------------------------------------------------------------------------------------
 
+
+
+    -- Creating Todd Button
+    toddButton = widget.newButton( 
+    {
+        -- Setting Position
+        x = 200,
+        y = 500,
+
+        -- Setting Dimensions
+        width = 150,
+        height = 270,
+
+        -- Setting Visual Properties
+        defaultFile = "Images/ToddUnpressed.png",
+        overFile = "Images/ToddPressed.png",
+
+        -- Setting Functional Properties
+        onRelease = ToddTransition
+
+    } )
+
+    -----------------------------------------------------------------------------------------
+
+
+
+
+    -- Creating Sophia Button
+    sofiaButton = widget.newButton( 
+    {
+        -- Setting Position
+        x = 400,
+        y = 500,
+
+        -- Setting Dimensions
+        width = 150,
+        height = 270,
+
+        -- Setting Visual Properties
+        defaultFile = "Images/SofiaUnpressed.png",
+        overFile = "Images/SofiaPressed.png",
+
+        -- Setting Functional Properties
+        onRelease = SofiaTransition
+
+    } )
+
+    -----------------------------------------------------------------------------------------
+
+
+
+    -- Creating Sophia Button
+    tobyButton = widget.newButton( 
+    {
+        -- Setting Position
+        x = 600,
+        y = 500,
+
+        -- Setting Dimensions
+        width = 150,
+        height = 170,
+
+        -- Setting Visual Properties
+        defaultFile = "Images/TobyUnpressed.png",
+        overFile = "Images/TobyPressed.png",
+
+        -- Setting Functional Properties
+        onRelease = TobyTransition
+
+    } )
+
+    -----------------------------------------------------------------------------------------
+
+
+
+    -- Creating Sophia Button
+    pennyButton = widget.newButton( 
+    {
+        -- Setting Position
+        x = 800,
+        y = 500,
+
+        -- Setting Dimensions
+        width = 150,
+        height = 170,
+
+        -- Setting Visual Properties
+        defaultFile = "Images/PennyUnpressed.png",
+        overFile = "Images/PennyPressed.png",
+
+        -- Setting Functional Properties
+        onRelease = PennyTransition
+
+    } )
+
+    -----------------------------------------------------------------------------------------
+
     -- Associating Buttons with this scene
     sceneGroup:insert( backButton )
+    sceneGroup:insert( toddButton )
+    sceneGroup:insert( sofiaButton )
+    sceneGroup:insert( tobyButton )
+    sceneGroup:insert( pennyButton )
+
     
 end --function scene:create( event )
 

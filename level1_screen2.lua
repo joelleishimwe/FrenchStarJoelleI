@@ -13,7 +13,7 @@ local widget = require( "widget" )
 -----------------------------------------------------------------------------------------
 
 -- Naming Scene
-sceneName = "level1_screen"
+sceneName = "level1_screen2"
 
 -- Creating Scene Object
 scene = composer.newScene( sceneName ) -- This function doesn't accept a string, only a variable containing a string
@@ -22,7 +22,6 @@ scene = composer.newScene( sceneName ) -- This function doesn't accept a string,
 -- LOCAL VARIABLES
 -----------------------------------------------------------------------------------------
 local bkg_image
-
 
 -----------------------------------------------------------------------------------------
 -- GLOBAL SCENE FUNCTIONS

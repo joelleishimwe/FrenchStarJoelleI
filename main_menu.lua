@@ -213,6 +213,9 @@ function scene:hide( event )
 
     elseif ( phase == "did" ) then
         -- Called immediately after scene goes off screen.
+
+        -- stop the play of the background music
+        backgroundSoundChannel = audio.stop(backgroundSound)
     end
 
 end -- function scene:hide( event )
